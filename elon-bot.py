@@ -34,7 +34,6 @@ def create_headers(bearer_token):
 def main():
     #twitter setup
     lastDate = datetime.now()
-    #Enter your own tokens/keys here
     bearer_token = secrets.bearer_token
     API_key = secrets.API_key
     API_secret_key = secrets.API_secret_key
@@ -60,7 +59,6 @@ def main():
                                 bought = True
                                 cryptoMessage = "Doge found in Elon's tweet: " + tweet['text'] #generate crypto found message
                                 print(cryptoMessage)
-                                #Enter your binance API key here, You can also change quantity, that means how much doge you want to buy if Elon tweets.
                                 #Remember, that this is posting order on your binance Futures account and will take the multiplier, for example x25, that you have on doge.
                                 request_client = RequestClient(api_key=secrets.API_key_binance,secret_key=secrets.API_secret_key_binance,url='https://fapi.binance.com')
                                 result = request_client.post_order(symbol="DOGEUSDT", side=OrderSide.BUY, ordertype=OrderType.MARKET, quantity=6100)
